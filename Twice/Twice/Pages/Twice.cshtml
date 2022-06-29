@@ -1,0 +1,39 @@
+﻿@page
+@model Twice.Pages.TwiceModel
+@{
+    ViewData["Title"] = "Home daftar album twice";
+}
+<h4>LIST DAFTAR ALBUM TWICE</h4>
+<hr />
+<button class="btn btn-lg btn-primary btn-block text-uppercase col-md-3" type="button"
+        onclick="location.href='TwiceAdd'">
+    SAVE ALBUM
+</button>
+<div class="row">
+    <div class="col-md-6">
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>ID</th>
+                <th>NAMA_ALBUM</th>
+                <th>TAHUN</th>
+                <th>PRODUSER</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.DataTwice)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.id)</td>
+                    <td>@Html.DisplayFor(m => item.nama_album)</td>
+                    <td>@Html.DisplayFor(m => item.tahun)</td>
+                    <td>@Html.DisplayFor(m => item.produser)</td>
+                    <td>
+                        <a href="TwiceAdd?action=edit&id=@item.id" class="btn btn-primary">edit</a>
+                        |
+                        <a href="TwiceAdd?action=delete&id=@item.id" class="btn btn-primary">delete</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+

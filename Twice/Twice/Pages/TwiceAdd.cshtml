@@ -1,0 +1,34 @@
+﻿@page
+@model Twice.Pages.TwiceAddModel
+@{
+    ViewData["Title"] = "tambah data album twice";
+}
+<div class="row">
+    <div class="c0l-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="tw.nama_album" class="control-label"></label>
+                <input asp-for="tw.nama_album" class="form-control" />
+                <span asp-validation-for="tw.nama_album" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tw.tahun" class="control-label"></label>
+                <input asp-for="tw.tahun" class="form-control" />
+                <span asp-validation-for="tw.tahun" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="tw.produser" class="control-label"></label>
+                <input asp-for="tw.produser" class="form-control" />
+                <span asp-validation-for="tw.produser" class="text-danger"></span>
+            </div>
+            <input asp-for="tw.id" type="hidden" />
+            <div class="form-group">
+                <input type="submit" value="SIMPAN" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+@section Scripts{
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial"); }
+}
